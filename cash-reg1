@@ -1,0 +1,90 @@
+#! /bin/bash
+##############################################################################
+# Script Name:	Cash Reg1
+# By:		Mark Williams
+# Date:		8-13-2011
+# Purpose:	Allows prices to be entered. Counts the number of items. 
+#		Adds prices together + tax. Displays all relevent information
+#		at the end of the loop.
+##############################################################################
+
+clear
+itemNum=0
+itemPrice=0
+priceSubtotal=0
+priceTotal=0
+taxOnTotal=0
+confirm=n
+highPrice=0
+lowPrice=0
+
+echo "-----------------------------------------------"
+echo "|           Welcome to Cash Register          |"
+echo "|        Entering a blank exits program       |"
+echo "-----------------------------------------------"
+echo " "
+echo -n "          Enter item price - $"
+read itemPrice
+let highPrice=$itemPrice
+let lowPrice=$itemPrice
+
+for (( ; ; ))
+do
+if [ -n "$itemPrice" 2> /dev/null ] 
+then
+
+if [ $itemPrice -gt $highPrice ]
+then
+	let highPrice=$itemPrice
+else
+	if [ $itemPrice -lt $lowPrice ]
+	then
+		let lowPrice=$itemPrice
+	fi
+fi
+
+let itemPriceTest=${itemPrice/.*}
+else
+	break
+fi
+	if [ $itemPriceTest -eq $itemPriceTest 2> /dev/null ]
+	then
+		if [ $itemPrice -ge 0 ]
+		then
+			let itemNum=$itemNum+1
+			let priceSubtotal=$priceSubtotal+$itemPrice
+
+		else
+			echo "You have entered a negative number"
+			echo "This will remove a number from the item count"
+			echo "Use this number [y/n]"
+			read confirm
+			if [ $confirm = "y" ]
+			then
+				let itemNum=$itemNum-1
+				let priceSubtotal=$priceSubtotal+$itemPrice
+			else
+				echo "Not using number"
+			fi
+		fi
+		
+	else
+		echo "Not a valid price - Only Numbers Please"
+	fi
+
+echo -n "          Enter item price - $"
+read itemPrice
+
+done
+# Final outputs
+taxOnTotal=$(echo "scale=2; $priceSubtotal*0.06" | bc) 
+priceTotal=$(echo "scale=2; $priceSubtotal*1.06" | bc) 
+echo "-----------------------------------------------"
+echo "   Number of items entered = "$itemNum
+echo "            Subtotal price = $"$priceSubtotal
+echo "           Tax on subtotal = $"$taxOnTotal
+echo "               Total Price = $"$priceTotal
+echo "-----------------------------------------------"
+echo "      Lowest entered price = $"$lowPrice
+echo "     Highest entered price = $"$highPrice
+

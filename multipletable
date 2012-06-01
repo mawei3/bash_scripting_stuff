@@ -1,0 +1,18 @@
+#!/bin/bash
+# --------------------------------------------------------------------------
+#  Using nested for loops, write a program to show the multiplication table 
+#  of 10X10.
+# --------------------------------------------------------------------------
+
+tableRow=1
+tableCol=1
+
+for tableRow in {1..10}
+do
+	for tableCol in {1..10}
+	do
+		let calculate=$tableRow*$tableCol
+		echo "$tableRow X $tableCol = $calculate"
+	done
+	let tableCol=1
+done
