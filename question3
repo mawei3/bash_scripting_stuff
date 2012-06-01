@@ -1,0 +1,14 @@
+#!/bin/bash
+total=1
+
+echo "--------------------------------"
+echo -n "      Give me a number: "
+read firstNum
+echo -n "Give me another number: "
+read secondNum
+echo  "--------------------------------"
+for i in `seq 1 $secondNum`
+do
+	let total=$total*$firstNum
+done
+echo "$firstNum to the power of $secondNum is $total"

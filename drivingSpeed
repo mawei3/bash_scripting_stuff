@@ -1,0 +1,23 @@
+#!/bin/bash
+speedLimit=70
+calculateSpeed=0
+
+echo "The posted speed limit is $speedLimit"
+echo "Enter a speed between 1 and 120"
+echo -n "> "
+read inputSpeed
+if [ $inputSpeed -ge $speedLimit ]
+then
+	if [ $inputSpeed -eq $speedLimit ]
+	then
+		echo "$inputSpeed is the same as the $speedLimit"
+	else
+		let calculateSpeed=$inputSpeed-$speedLimit
+		echo "$inputSpeed is $calculateSpeed over the speed limit of $speedLimit"
+	fi
+else
+	let calculateSpeed=$speedLimit-$inputSpeed
+	echo "$inputSpeed is $calculateSpeed under the speed limit of $speedLimit"
+fi
+
+

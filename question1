@@ -1,0 +1,22 @@
+#!/bin/bash
+creditLimit=200
+
+echo "You have 200 dollars to spend. Please type in the item price."
+echo "Current funds remaining: $creditLimit"
+echo -n "Item Price: "
+read itemPrice
+echo ""
+for (( ; ; ))
+do
+	if [ $itemPrice -gt $creditLimit ]
+	then
+		echo "Sorry the price is over the available funds"
+	else
+		let creditLimit=$creditLimit-$itemPrice
+		echo "$itemPrice has been deducted from available funds"
+	fi
+echo ""
+echo "Current funds remaining: $creditLimit"
+echo -n "Next Item Price: "
+read itemPrice
+done

@@ -1,0 +1,19 @@
+#!/bin/bash
+numOdd=0
+numEven=0
+
+echo "Enter 10 numbers, please."
+for i in {1..10}
+do
+	echo -n "Number $i: "
+	read inputNum
+	check=$(( inputNum % 2 ))
+	if [ $check -eq 1 ]
+	then
+		let numOdd=$numOdd+1
+	else
+		let numEven=$numEven+1
+	fi
+done
+
+echo "You entered $numEven even numbers and $numOdd odd numbers."
