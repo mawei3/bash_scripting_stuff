@@ -1,4 +1,15 @@
 #!/bin/bash
+#  ----------------------------------Question 1-----------------------------
+#  Write a program to show this message to the user: "You have $200 to spend. 
+#  Please type in the item price"
+#
+#  Your program should keep taking user's input and then calculate the 
+#  reamining credit and show it to the user.
+#
+#  You should also notify if price is over the credit limit and ask to enter 
+#  the price again.
+#  -------------------------------------------------------------------------
+
 creditLimit=200
 
 echo "You have 200 dollars to spend. Please type in the item price."

@@ -1,4 +1,11 @@
 #!/bin/bash
+# ---------------------------------Question 3---------------------------------
+#  Using a for loop and only mutiplication operator, write a program to take 
+#  two numbers from the user and show the result of the first number to the 
+#  power of the second number.
+# ----------------------------------------------------------------------------
+
+
 total=1
 
 echo "--------------------------------"

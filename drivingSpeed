@@ -1,4 +1,13 @@
 #!/bin/bash
+# ------------------------------Question 4------------------------------------
+#  Write a program called drivingSpeed to ask user for a number between 
+#  1 and 120.
+#
+#  If the given number is greater than the speed limit of 70, the program 
+#  should say how many miles above the speed limit. And if it's less than 70, 
+#  show how many miles less than the speed limit.
+# ----------------------------------------------------------------------------
+
 speedLimit=70
 calculateSpeed=0
 

@@ -1,4 +1,10 @@
 #!/bin/bash
+# -----------------------------Question 2-----------------------------------
+#  Using a for loop, write a program to ask user to enter 10 numbers and at 
+#  the end, show the number of even and odd numbers.
+# --------------------------------------------------------------------------
+
+
 numOdd=0
 numEven=0
 
